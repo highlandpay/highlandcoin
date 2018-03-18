@@ -1,0 +1,2 @@
+# highlandcoin
+scrypt based coin
