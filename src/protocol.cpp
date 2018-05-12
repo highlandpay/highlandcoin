@@ -6,6 +6,7 @@
 #include "protocol.h"
 #include "util.h"
 #include "netbase.h"
+#include "compat.h"
 
 #ifndef WIN32
 # include <arpa/inet.h>

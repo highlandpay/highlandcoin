@@ -25,7 +25,6 @@ using namespace std;
 #include <QTimer>
 #include <QDebug>
 #include <QScrollArea>
-#include <QScroller>
 #include <QDateTime>
 #include <QApplication>
 #include <QClipboard>
@@ -65,8 +64,6 @@ MasternodeManager::MasternodeManager(QWidget *parent) :
     connect(copyAddressAction, SIGNAL(triggered()), this, SLOT(copyAddress()));
     connect(copyPubkeyAction, SIGNAL(triggered()), this, SLOT(copyPubkey()));
         
-    ui->tableWidgetMasternodes->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
-    ui->tableWidget_2->horizontalHeader()->setSectionResizeMode(QHeaderView::ResizeToContents);
 
     timer = new QTimer(this);
     connect(timer, SIGNAL(timeout()), this, SLOT(updateNodeList()));

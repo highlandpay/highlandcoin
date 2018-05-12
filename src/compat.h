@@ -5,6 +5,11 @@
 #ifndef _BITCOIN_COMPAT_H
 #define _BITCOIN_COMPAT_H
 
+#ifdef __APPLE__ 
+#include <stddef.h>
+size_t strnlen( const char *start, size_t max_len);
+#endif
+
 #ifdef WIN32
 #ifdef _WIN32_WINNT
 #undef _WIN32_WINNT
