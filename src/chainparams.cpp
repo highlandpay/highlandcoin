@@ -106,15 +106,14 @@ public:
 		vSeeds.push_back(CDNSSeedData("1", "212.237.23.86"));
 		vSeeds.push_back(CDNSSeedData("2", "80.211.10.160"));       
 		vSeeds.push_back(CDNSSeedData("3", "80.211.181.225"));       
-		vSeeds.push_back(CDNSSeedData("4", "45.77.226.107"));       
-//		vSeeds.push_back(CDNSSeedData("4", ""));       
+//		vSeeds.push_back(CDNSSeedData("3", ""));       
 		convertSeeds(vFixedSeeds, pnSeed, ARRAYLEN(pnSeed), nDefaultPort);
 
 		nPoolMaxTransactions = 3;
 		//strSporkKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
 		//strMasternodePaymentsPubKey = "046f78dcf911fbd61910136f7f0f8d90578f68d0b3ac973b5040fb7afb501b5939f39b108b0569dca71488f5bbf498d92e4d1194f6f941307ffd95f75e76869f0e";
 		strDarksendPoolDummyAddress = "HaarSYyCEzot8tDcEfuwwW78N8SaaamVpZ";
-		nLastPOWBlock = 5550000;
+		nLastPOWBlock = 3000000;
 		nPOSStartBlock = 12;
 	}
 
