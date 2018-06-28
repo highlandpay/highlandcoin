@@ -7,11 +7,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleGetInfoString</key>
-	<string>Highland-Qt</string>
+	<string>Highland</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleExecutable</key>
-	<string>Highland-Qt</string>
+	<string>Highland</string>
 	<key>CFBundleIdentifier</key>
 	<string>co.Highland.Highland-Qt</string>
         <key>CFBundleURLTypes</key>

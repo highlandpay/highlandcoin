@@ -15,7 +15,6 @@
 #include <QAbstractItemDelegate>
 #include <QPainter>
 #include <QScrollArea>
-#include <QScroller>
 #include <QSettings>
 #include <QTimer>
 
