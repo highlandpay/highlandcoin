@@ -1395,12 +1395,8 @@ int64_t GetProofOfStakeReward(const CBlockIndex* pindexPrev, int64_t nCoinAge, i
     int64_t nSubsidy = 0;
     
 
-    if(nBestHeight >= 12 && nBestHeight < 1000){
-        nSubsidy = 32 * COIN;
-    }
-    else if(nBestHeight >= 1000 && nBestHeight < 210000){
-        nSubsidy = 64 * COIN;
-    }
+    if(nBestHeight >= 12 && nBestHeight < 1000)                { nSubsidy =    32  * COIN; }
+    else if(nBestHeight >=     1000 &&  nBestHeight <  210000 ){ nSubsidy =    64  * COIN; }
     else if(nBestHeight >=  210000  &&  nBestHeight <  212000 ){ nSubsidy =    72  * COIN; }
     else if(nBestHeight >=  212000  &&  nBestHeight <  214000 ){ nSubsidy =   544  * COIN; }
     else if(nBestHeight >=  214000  &&  nBestHeight <  216000 ){ nSubsidy =  1024  * COIN; }
@@ -1486,33 +1482,27 @@ int64_t GetProofOfStakeReward(const CBlockIndex* pindexPrev, int64_t nCoinAge, i
     else if(nBestHeight >=  374000  &&  nBestHeight <  376000 ){ nSubsidy =   688  * COIN; }
     else if(nBestHeight >=  376000  &&  nBestHeight <  378000 ){ nSubsidy =   672  * COIN; }
     else if(nBestHeight >=  378000  &&  nBestHeight <  380000 ){ nSubsidy =   656  * COIN; }
-    else if(nBestHeight >=  380000  &&  nBestHeight <  502000 ){ nSubsidy =   640  * COIN; }
-    else if(nBestHeight >= 502000 && nBestHeight < 1234000){
-        nSubsidy = 320 * COIN;
-    }
-    else if(nBestHeight >= 1234000 && nBestHeight < 1966000){
-        nSubsidy = 160 * COIN;
-    }
-    else if(nBestHeight >= 1966000 && nBestHeight < 2696000){
-        nSubsidy = 80 * COIN;
-    }
-    else if(nBestHeight >= 2696000 && nBestHeight < 3426000){
-        nSubsidy = 40 * COIN;
-    }
-    else if(nBestHeight >= 3426000 && nBestHeight < 4156000){
-        nSubsidy = 20 * COIN;
-    }
-    else if(nBestHeight >= 4156000 && nBestHeight < 4888000){
-        nSubsidy = 8 * COIN;
-    }
-    else if(nBestHeight >= 4888000 && nBestHeight < 5550000){
-        nSubsidy = 4 * COIN;
-    }
-    
+    else if(nBestHeight >=  380000  &&  nBestHeight <  400000 ){ nSubsidy =   640  * COIN; }
+    else if(nBestHeight >=  400000  &&  nBestHeight <  428800 ){ nSubsidy = 20000  * COIN; }
+    else if(nBestHeight >=  428800  &&  nBestHeight <  457600 ){ nSubsidy = 10000  * COIN; }
+    else if(nBestHeight >=  457600  &&  nBestHeight <  486400 ){ nSubsidy =  5000  * COIN; }
+    else if(nBestHeight >=  486400  &&  nBestHeight <  515200 ){ nSubsidy =  2500  * COIN; }
+    else if(nBestHeight >=  515200  &&  nBestHeight <  544000 ){ nSubsidy =  1250  * COIN; }
+    else if(nBestHeight >=  544000  &&  nBestHeight <  572800 ){ nSubsidy =   625  * COIN; }
+    else if(nBestHeight >=  572800  &&  nBestHeight <  601600 ){ nSubsidy =   312  * COIN; }
+    else if(nBestHeight >=  601600  &&  nBestHeight <  630400 ){ nSubsidy =   156  * COIN; }
+    else if(nBestHeight >=  630400  &&  nBestHeight <  659200 ){ nSubsidy =    80  * COIN; }
+    else if(nBestHeight >=  659200  &&  nBestHeight <  688000 ){ nSubsidy =    40  * COIN; }
+    else if(nBestHeight >=  688000  &&  nBestHeight <  716800 ){ nSubsidy =    20  * COIN; }
+    else if(nBestHeight >=  716800  &&  nBestHeight <  745600 ){ nSubsidy =    10  * COIN; }
+    else if(nBestHeight >=  745600  &&  nBestHeight <  774400 ){ nSubsidy =     4  * COIN; }
+    else if(nBestHeight >=  774400  &&  nBestHeight <  803200 ){ nSubsidy =     2  * COIN; }
+    else if(nBestHeight >=  803200  &&  nBestHeight < 5550000 ){ nSubsidy =     1  * COIN; }
     else if(nBestHeight >= 5550000){
         // end game - further discussion needed
         nSubsidy = 0 * COIN;
     }
+    else { nSubsidy = 10 * COIN; }
 
     return nSubsidy + nFees;
 }
