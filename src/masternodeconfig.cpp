@@ -30,24 +30,37 @@ bool CMasternodeConfig::read(boost::filesystem::path path) {
             iss.str(line);
             iss.clear();
             if (!(iss >> alias >> ip >> privKey >> txHash >> outputIndex)) {
+
+                if ((!alias.empty()) && alias[0] == '#') {
+                    // This line is a comment, not a masternode declaration.
+                    continue;
+                }
                 LogPrintf("Could not parse masternode.conf line: %s\n", line.c_str());
                 streamConfig.close();
                 return false;
             }
         } else {
-            size_t pos = reward.find_first_of(":");
-            if(pos == string::npos) { // no ":" found
-                rewardPercent = "100";
-                rewardAddress = reward;
+            // Remove the comment part, if any.
+            reward = reward.substr(0, reward.find('#'));
+            if (reward.empty()) {
+                // There was no defined reward(s): only a comment
+                rewardAddress = "";
+                rewardPercent = "";
             } else {
-                rewardPercent = reward.substr(pos + 1);
-                rewardAddress = reward.substr(0, pos);
-            }
-            CBitcoinAddress address(rewardAddress);
-            if (!address.IsValid()) {
-                LogPrintf("Invalid TX address in masternode.conf line: %s\n", line.c_str());
-                streamConfig.close();
-                return false;
+                size_t pos = reward.find_first_of(":");
+                if(pos == string::npos) { // no ":" found
+                    rewardPercent = "100";
+                    rewardAddress = reward;
+                } else {
+                    rewardPercent = reward.substr(pos + 1);
+                    rewardAddress = reward.substr(0, pos);
+                }
+                CBitcoinAddress address(rewardAddress);
+                if (!address.IsValid()) {
+                    LogPrintf("Invalid TX address in masternode.conf line: %s\n", line.c_str());
+                    streamConfig.close();
+                    return false;
+                }
             }
         }
 

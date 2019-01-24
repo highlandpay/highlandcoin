@@ -81,7 +81,11 @@ inline int64_t FutureDrift(int64_t nTime) { return nTime + DRIFT; }
 static const unsigned char REJECT_INVALID = 0x10;
 
 //  inline int64_t GetMNCollateral(int nHeight) { return 4000; }
-inline int64_t GetMNCollateral(int nHeight) { if(nHeight < 210000) return 4000; else return 80000;}
+inline int64_t GetMNCollateral(int nHeight) { 
+    if(nHeight < 210000) return 4000; 
+    else if(nHeight < 400000) return 80000; 
+    else return 8000000;
+}
 
 extern CScript COINBASE_FLAGS;
 extern CCriticalSection cs_main;
